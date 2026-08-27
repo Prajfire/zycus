@@ -1,0 +1,371 @@
+{
+  "mode": "live",
+  "pass_threshold": 0.7,
+  "summary": {
+    "total": 13,
+    "passed": 9,
+    "failed": 4
+  },
+  "results": [
+    {
+      "case_id": "t1-01-clear-p1-bug",
+      "task": "task1",
+      "description": "Clear P1: production down, data loss language, urgent tone.",
+      "checks": [
+        {
+          "name": "category_in_enum",
+          "passed": true,
+          "detail": "Bug"
+        },
+        {
+          "name": "urgency_in_enum",
+          "passed": true,
+          "detail": "P3"
+        },
+        {
+          "name": "reasoning_present",
+          "passed": true,
+          "detail": "169 chars"
+        },
+        {
+          "name": "responder_team_assigned",
+          "passed": true,
+          "detail": "Tier-2 Engineering"
+        },
+        {
+          "name": "draft_length_reasonable",
+          "passed": false,
+          "detail": "14 words"
+        },
+        {
+          "name": "classified_as_p1",
+          "passed": false,
+          "detail": "P3"
+        },
+        {
+          "name": "kb_match_found",
+          "passed": true,
+          "detail": "{'doc': 'products\\\\databridge-pro.md', 'section': 'DataBridge Pro \u2014 Product Reference > Common Support Scenarios > Pipeline stopped processing', 'relevance_score': 0.151}"
+        }
+      ],
+      "quality_score": 0.71,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t1-02-billing-question",
+      "task": "task1",
+      "description": "Clear low-urgency billing/how-to question.",
+      "checks": [
+        {
+          "name": "category_in_enum",
+          "passed": true,
+          "detail": "Bug"
+        },
+        {
+          "name": "urgency_in_enum",
+          "passed": true,
+          "detail": "P3"
+        },
+        {
+          "name": "reasoning_present",
+          "passed": true,
+          "detail": "169 chars"
+        },
+        {
+          "name": "responder_team_assigned",
+          "passed": true,
+          "detail": "Tier-2 Engineering"
+        },
+        {
+          "name": "draft_length_reasonable",
+          "passed": false,
+          "detail": "14 words"
+        }
+      ],
+      "quality_score": 0.8,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t1-03-feature-request",
+      "task": "task1",
+      "description": "Clear feature request, no urgency.",
+      "checks": [
+        {
+          "name": "category_in_enum",
+          "passed": true,
+          "detail": "Bug"
+        },
+        {
+          "name": "urgency_in_enum",
+          "passed": true,
+          "detail": "P3"
+        },
+        {
+          "name": "reasoning_present",
+          "passed": true,
+          "detail": "169 chars"
+        },
+        {
+          "name": "responder_team_assigned",
+          "passed": true,
+          "detail": "Tier-2 Engineering"
+        }
+      ],
+      "quality_score": 1.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t1-04-known-error-code",
+      "task": "task1",
+      "description": "References a specific documented error code \u2014 KB retrieval should find a match.",
+      "checks": [
+        {
+          "name": "category_in_enum",
+          "passed": true,
+          "detail": "Bug"
+        },
+        {
+          "name": "urgency_in_enum",
+          "passed": true,
+          "detail": "P3"
+        },
+        {
+          "name": "kb_match_found",
+          "passed": true,
+          "detail": "{'doc': 'troubleshooting\\\\performance-and-integrations.md', 'section': 'Troubleshooting: Performance Issues > Error Reference', 'relevance_score': 0.189}"
+        },
+        {
+          "name": "draft_length_reasonable",
+          "passed": false,
+          "detail": "14 words"
+        }
+      ],
+      "quality_score": 0.75,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t1-05-onboarding",
+      "task": "task1",
+      "description": "New customer onboarding / setup question.",
+      "checks": [
+        {
+          "name": "category_in_enum",
+          "passed": true,
+          "detail": "Bug"
+        },
+        {
+          "name": "urgency_in_enum",
+          "passed": true,
+          "detail": "P3"
+        },
+        {
+          "name": "reasoning_present",
+          "passed": true,
+          "detail": "169 chars"
+        }
+      ],
+      "quality_score": 1.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t1-06-ADVERSARIAL-sparse",
+      "task": "task1",
+      "description": "Adversarial: near-empty ticket body, should degrade gracefully rather than crash.",
+      "checks": [
+        {
+          "name": "degrades_gracefully",
+          "passed": true,
+          "detail": "warnings=[]"
+        },
+        {
+          "name": "responder_team_assigned",
+          "passed": true,
+          "detail": "Tier-2 Engineering"
+        }
+      ],
+      "quality_score": 1.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t1-07-ADVERSARIAL-mixed-signals",
+      "task": "task1",
+      "description": "Adversarial: ambiguous category (reads as both Bug and Feature Request) \u2014 tests that the model picks one defensible label instead of stalling.",
+      "checks": [
+        {
+          "name": "category_in_enum",
+          "passed": true,
+          "detail": "Bug"
+        },
+        {
+          "name": "urgency_in_enum",
+          "passed": true,
+          "detail": "P3"
+        },
+        {
+          "name": "reasoning_present",
+          "passed": true,
+          "detail": "169 chars"
+        }
+      ],
+      "quality_score": 1.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t2-01-at-risk-account",
+      "task": "task2",
+      "description": "Real account with health_status=At Risk.",
+      "checks": [
+        {
+          "name": "flagged_quotes_verifiable",
+          "passed": true,
+          "detail": "all quotes verified"
+        },
+        {
+          "name": "executive_summary_length",
+          "passed": false,
+          "detail": "0 sentences"
+        },
+        {
+          "name": "talking_points_count",
+          "passed": false,
+          "detail": "0 points"
+        },
+        {
+          "name": "risks_field_populated",
+          "passed": true,
+          "detail": "[\"Account health status is 'At Risk'.\", \"Usage trend is 'Inactive'.\", 'Escalation note: Decision maker considering competing vendor evaluation']"
+        }
+      ],
+      "quality_score": 0.5,
+      "passed": false,
+      "error": null
+    },
+    {
+      "case_id": "t2-02-churning-account",
+      "task": "task2",
+      "description": "Real account with health_status=Churning.",
+      "checks": [
+        {
+          "name": "flagged_quotes_verifiable",
+          "passed": true,
+          "detail": "all quotes verified"
+        },
+        {
+          "name": "executive_summary_length",
+          "passed": false,
+          "detail": "0 sentences"
+        },
+        {
+          "name": "talking_points_count",
+          "passed": false,
+          "detail": "0 points"
+        },
+        {
+          "name": "risks_field_populated",
+          "passed": true,
+          "detail": "[\"Account health status is 'Churning'.\", \"Usage trend is 'Declining'.\", '2 P1 tickets in the last 30 days.', 'Primary contact last logged in 41 days ago.', 'Escalation note: Champion left the company \u2014 no replacement identified yet', 'Escalation note: Customer expressed frustration with response times in last sync', 'Escalation note: Decision maker considering competing vendor evaluation']"
+        }
+      ],
+      "quality_score": 0.5,
+      "passed": false,
+      "error": null
+    },
+    {
+      "case_id": "t2-03-healthy-account",
+      "task": "task2",
+      "description": "Real account with health_status=Healthy.",
+      "checks": [
+        {
+          "name": "flagged_quotes_verifiable",
+          "passed": true,
+          "detail": "all quotes verified"
+        },
+        {
+          "name": "executive_summary_length",
+          "passed": false,
+          "detail": "0 sentences"
+        },
+        {
+          "name": "talking_points_count",
+          "passed": false,
+          "detail": "0 points"
+        },
+        {
+          "name": "risks_field_populated",
+          "passed": true,
+          "detail": "['Primary contact last logged in 57 days ago.']"
+        }
+      ],
+      "quality_score": 0.5,
+      "passed": false,
+      "error": null
+    },
+    {
+      "case_id": "t2-04-new-account",
+      "task": "task2",
+      "description": "Real account with health_status=New.",
+      "checks": [
+        {
+          "name": "flagged_quotes_verifiable",
+          "passed": true,
+          "detail": "all quotes verified"
+        },
+        {
+          "name": "executive_summary_length",
+          "passed": false,
+          "detail": "0 sentences"
+        },
+        {
+          "name": "talking_points_count",
+          "passed": false,
+          "detail": "0 points"
+        },
+        {
+          "name": "risks_field_populated",
+          "passed": true,
+          "detail": "['Only 58% of licensed seats are active (757/1314).']"
+        }
+      ],
+      "quality_score": 0.5,
+      "passed": false,
+      "error": null
+    },
+    {
+      "case_id": "t2-06-determinism-check",
+      "task": "task2",
+      "description": "Same account_id run twice must produce identical output.",
+      "checks": [
+        {
+          "name": "identical_repeat_run",
+          "passed": true,
+          "detail": "match"
+        }
+      ],
+      "quality_score": 1.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case_id": "t2-07-ADVERSARIAL-unknown-account",
+      "task": "task2",
+      "description": "Unknown account_id should raise AccountNotFoundError, not fabricate a brief.",
+      "checks": [
+        {
+          "name": "raises_not_found",
+          "passed": true,
+          "detail": "raised as expected"
+        }
+      ],
+      "quality_score": 1.0,
+      "passed": true,
+      "error": null
+    }
+  ]
+}

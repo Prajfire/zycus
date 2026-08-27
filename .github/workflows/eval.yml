@@ -1,0 +1,32 @@
+name: tests-and-eval
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: PYTHONPATH=src pytest tests/ -v
+
+      - name: Run eval harness (mock mode — no API key in CI)
+        run: python eval/eval_harness.py --mock
+
+      - name: Upload eval report
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: |
+            eval/eval_report.json
+            eval/eval_report.md
