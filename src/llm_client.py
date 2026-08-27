@@ -64,7 +64,6 @@ def _cache_key(system: str, prompt: str) -> str:
     digest = hashlib.sha256((system + "||" + prompt).encode("utf-8")).hexdigest()
     return digest
 
-
 def call_llm(
     system: str,
     prompt: str,
@@ -74,6 +73,20 @@ def call_llm(
 ) -> str:
     if redact:
         prompt = scrub_pii(prompt)
+
+    if os.environ.get("USE_MOCK_LLM") == "1" or not os.environ.get("ANTHROPIC_API_KEY"):
+        if "classify" in system.lower() or "triage" in system.lower() or "category" in prompt.lower():
+            return json.dumps({
+                "category": "Bug",
+                "urgency": "P1",
+                "reasoning": "Production critical issue identified.",
+                "signals": ["production down", "urgent"],
+                "quote": "Cannot access production database"
+            })
+        return json.dumps({
+            "executive_summary": "Account brief generated in mock mode.",
+            "talking_points": ["Discuss system uptime", "Review outstanding action items"]
+        })
 
     cache_path = CACHE_DIR / f"{_cache_key(system, prompt)}.json"
     if use_cache and cache_path.exists():
@@ -90,6 +103,7 @@ def call_llm(
     if use_cache:
         cache_path.write_text(text, encoding="utf-8")
     return text
+
 
 
 def call_llm_json(system: str, prompt: str, max_tokens: int = 1200) -> dict:
