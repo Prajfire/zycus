@@ -26,8 +26,11 @@ import re
 from pathlib import Path
 
 import anthropic
+from dotenv import load_dotenv
 
-MODEL = "claude-sonnet-4-6"
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
+MODEL = "claude-3-5-sonnet-20241022"
 CACHE_DIR = Path(__file__).resolve().parent.parent / ".llm_cache"
 CACHE_DIR.mkdir(exist_ok=True)
 
@@ -62,8 +65,6 @@ def _cache_key(system: str, prompt: str) -> str:
     return digest
 
 
-
-
 def call_llm(
     system: str,
     prompt: str,
@@ -71,9 +72,24 @@ def call_llm(
     use_cache: bool = True,
     redact: bool = True,
 ) -> str:
-	return '{"category": "billing", "urgency": "medium", "reasoning": "Mock response for offline testing", "signals": [], "quote": ""}'
+    if redact:
+        prompt = scrub_pii(prompt)
 
+    cache_path = CACHE_DIR / f"{_cache_key(system, prompt)}.json"
+    if use_cache and cache_path.exists():
+        return cache_path.read_text(encoding="utf-8")
 
+    client = _get_client()
+    resp = client.messages.create(
+        model=MODEL,
+        max_tokens=max_tokens,
+        system=system,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = resp.content[0].text
+    if use_cache:
+        cache_path.write_text(text, encoding="utf-8")
+    return text
 
 
 def call_llm_json(system: str, prompt: str, max_tokens: int = 1200) -> dict:

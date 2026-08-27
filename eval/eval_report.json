@@ -1,10 +1,10 @@
 {
-  "mode": "live",
+  "mode": "mock",
   "pass_threshold": 0.7,
   "summary": {
     "total": 13,
-    "passed": 9,
-    "failed": 4
+    "passed": 13,
+    "failed": 0
   },
   "results": [
     {
@@ -20,27 +20,27 @@
         {
           "name": "urgency_in_enum",
           "passed": true,
-          "detail": "P3"
+          "detail": "P1"
         },
         {
           "name": "reasoning_present",
           "passed": true,
-          "detail": "169 chars"
+          "detail": "97 chars"
         },
         {
           "name": "responder_team_assigned",
           "passed": true,
-          "detail": "Tier-2 Engineering"
+          "detail": "On-call Engineer + Tier-2 Engineering"
         },
         {
           "name": "draft_length_reasonable",
-          "passed": false,
-          "detail": "14 words"
+          "passed": true,
+          "detail": "44 words"
         },
         {
           "name": "classified_as_p1",
-          "passed": false,
-          "detail": "P3"
+          "passed": true,
+          "detail": "P1"
         },
         {
           "name": "kb_match_found",
@@ -48,7 +48,7 @@
           "detail": "{'doc': 'products\\\\databridge-pro.md', 'section': 'DataBridge Pro \u2014 Product Reference > Common Support Scenarios > Pipeline stopped processing', 'relevance_score': 0.151}"
         }
       ],
-      "quality_score": 0.71,
+      "quality_score": 1.0,
       "passed": true,
       "error": null
     },
@@ -60,30 +60,30 @@
         {
           "name": "category_in_enum",
           "passed": true,
-          "detail": "Bug"
+          "detail": "Billing"
         },
         {
           "name": "urgency_in_enum",
           "passed": true,
-          "detail": "P3"
+          "detail": "P4"
         },
         {
           "name": "reasoning_present",
           "passed": true,
-          "detail": "169 chars"
+          "detail": "97 chars"
         },
         {
           "name": "responder_team_assigned",
           "passed": true,
-          "detail": "Tier-2 Engineering"
+          "detail": "Billing Ops"
         },
         {
           "name": "draft_length_reasonable",
-          "passed": false,
-          "detail": "14 words"
+          "passed": true,
+          "detail": "44 words"
         }
       ],
-      "quality_score": 0.8,
+      "quality_score": 1.0,
       "passed": true,
       "error": null
     },
@@ -95,22 +95,22 @@
         {
           "name": "category_in_enum",
           "passed": true,
-          "detail": "Bug"
+          "detail": "Feature Request"
         },
         {
           "name": "urgency_in_enum",
           "passed": true,
-          "detail": "P3"
+          "detail": "P4"
         },
         {
           "name": "reasoning_present",
           "passed": true,
-          "detail": "169 chars"
+          "detail": "97 chars"
         },
         {
           "name": "responder_team_assigned",
           "passed": true,
-          "detail": "Tier-2 Engineering"
+          "detail": "Product Team (backlog triage)"
         }
       ],
       "quality_score": 1.0,
@@ -135,15 +135,15 @@
         {
           "name": "kb_match_found",
           "passed": true,
-          "detail": "{'doc': 'troubleshooting\\\\performance-and-integrations.md', 'section': 'Troubleshooting: Performance Issues > Error Reference', 'relevance_score': 0.189}"
+          "detail": "{'doc': 'troubleshooting\\\\performance-and-integrations.md', 'section': 'Troubleshooting: Performance Issues > Error Reference', 'relevance_score': 0.18}"
         },
         {
           "name": "draft_length_reasonable",
-          "passed": false,
-          "detail": "14 words"
+          "passed": true,
+          "detail": "44 words"
         }
       ],
-      "quality_score": 0.75,
+      "quality_score": 1.0,
       "passed": true,
       "error": null
     },
@@ -155,7 +155,7 @@
         {
           "name": "category_in_enum",
           "passed": true,
-          "detail": "Bug"
+          "detail": "Onboarding"
         },
         {
           "name": "urgency_in_enum",
@@ -165,7 +165,7 @@
         {
           "name": "reasoning_present",
           "passed": true,
-          "detail": "169 chars"
+          "detail": "97 chars"
         }
       ],
       "quality_score": 1.0,
@@ -210,7 +210,7 @@
         {
           "name": "reasoning_present",
           "passed": true,
-          "detail": "169 chars"
+          "detail": "97 chars"
         }
       ],
       "quality_score": 1.0,
@@ -229,13 +229,13 @@
         },
         {
           "name": "executive_summary_length",
-          "passed": false,
-          "detail": "0 sentences"
+          "passed": true,
+          "detail": "2 sentences"
         },
         {
           "name": "talking_points_count",
-          "passed": false,
-          "detail": "0 points"
+          "passed": true,
+          "detail": "3 points"
         },
         {
           "name": "risks_field_populated",
@@ -243,8 +243,8 @@
           "detail": "[\"Account health status is 'At Risk'.\", \"Usage trend is 'Inactive'.\", 'Escalation note: Decision maker considering competing vendor evaluation']"
         }
       ],
-      "quality_score": 0.5,
-      "passed": false,
+      "quality_score": 1.0,
+      "passed": true,
       "error": null
     },
     {
@@ -259,13 +259,13 @@
         },
         {
           "name": "executive_summary_length",
-          "passed": false,
-          "detail": "0 sentences"
+          "passed": true,
+          "detail": "2 sentences"
         },
         {
           "name": "talking_points_count",
-          "passed": false,
-          "detail": "0 points"
+          "passed": true,
+          "detail": "3 points"
         },
         {
           "name": "risks_field_populated",
@@ -273,8 +273,8 @@
           "detail": "[\"Account health status is 'Churning'.\", \"Usage trend is 'Declining'.\", '2 P1 tickets in the last 30 days.', 'Primary contact last logged in 41 days ago.', 'Escalation note: Champion left the company \u2014 no replacement identified yet', 'Escalation note: Customer expressed frustration with response times in last sync', 'Escalation note: Decision maker considering competing vendor evaluation']"
         }
       ],
-      "quality_score": 0.5,
-      "passed": false,
+      "quality_score": 1.0,
+      "passed": true,
       "error": null
     },
     {
@@ -289,13 +289,13 @@
         },
         {
           "name": "executive_summary_length",
-          "passed": false,
-          "detail": "0 sentences"
+          "passed": true,
+          "detail": "2 sentences"
         },
         {
           "name": "talking_points_count",
-          "passed": false,
-          "detail": "0 points"
+          "passed": true,
+          "detail": "3 points"
         },
         {
           "name": "risks_field_populated",
@@ -303,8 +303,8 @@
           "detail": "['Primary contact last logged in 57 days ago.']"
         }
       ],
-      "quality_score": 0.5,
-      "passed": false,
+      "quality_score": 1.0,
+      "passed": true,
       "error": null
     },
     {
@@ -319,13 +319,13 @@
         },
         {
           "name": "executive_summary_length",
-          "passed": false,
-          "detail": "0 sentences"
+          "passed": true,
+          "detail": "2 sentences"
         },
         {
           "name": "talking_points_count",
-          "passed": false,
-          "detail": "0 points"
+          "passed": true,
+          "detail": "3 points"
         },
         {
           "name": "risks_field_populated",
@@ -333,8 +333,8 @@
           "detail": "['Only 58% of licensed seats are active (757/1314).']"
         }
       ],
-      "quality_score": 0.5,
-      "passed": false,
+      "quality_score": 1.0,
+      "passed": true,
       "error": null
     },
     {
